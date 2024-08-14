@@ -1,4 +1,5 @@
 import { defineConfig } from '@playwright/test';
+const { AllureReporter } = require('allure-playwright');
 
 export default defineConfig({
   testDir: './src/tests', 
@@ -10,6 +11,6 @@ export default defineConfig({
   retries: 1, 
   workers: process.env.CI ? 1 : undefined, 
   reporter: [
-    ['allure-playwright'],
+    [AllureReporter, { outputFolder: 'allure-results' }]
   ],
 });
