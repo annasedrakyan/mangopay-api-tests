@@ -25,7 +25,7 @@ jobs:
       - name: Run tests and generate Allure report
         run: |
           npm run test
-          allure generate ./test-results --clean
+          allure generate ./allure-results --clean
         continue-on-error: true
 
       - name: Upload Allure report
