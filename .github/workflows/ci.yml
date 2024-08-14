@@ -18,10 +18,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Install Allure
+        run: |
+          npm install -g allure-commandline --save-dev
+
       - name: Run tests and generate Allure report
         run: |
           npm run test
-          npm run allure:generate
+          allure generate ./allure-results --clean
         continue-on-error: true
 
       - name: Upload Allure report
