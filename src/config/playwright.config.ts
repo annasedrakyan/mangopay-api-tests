@@ -9,8 +9,7 @@ export default defineConfig({
   },
   fullyParallel: true, 
   retries: 1, 
-  workers: process.env.CI ? 1 : undefined, 
-  reporter: [
-    [AllureReporter, { outputFolder: 'allure-results' }]
-  ],
+ // workers: process.env.CI ? 1 : undefined, 
+ reporter: [['html', { outputFolder: 'playwright-report', open: 'never' }]],
+
 });

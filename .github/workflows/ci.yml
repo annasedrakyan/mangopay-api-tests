@@ -1,9 +1,13 @@
-name: CI Pipeline
+name: Playwright Tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -13,24 +17,17 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '18'  
 
       - name: Install dependencies
         run: npm install
 
-      - name: Install Allure
-        run: |
-          npm install -g allure-commandline --save-dev
+      - name: Run Playwright tests
+        run: npx playwright test --reporter=html
 
-      - name: Run tests and generate Allure report
-        run: |
-          npm run test
-          allure generate ./allure-results --clean
-        continue-on-error: true
-
-      - name: Upload Allure report
-        if: always() 
-        uses: actions/upload-artifact@v4
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v3
         with:
-          name: allure-report
-          path: ./allure-report/
+          name: playwright-report
+          path: playwright-report/
