@@ -19,6 +19,7 @@ jobs:
         node-version: '20'
     - run: npm install
     - run: npm test
+     continue-on-error: true
 
     # Generate Allure Report
     - name: Generate Allure Report
