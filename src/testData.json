@@ -1,0 +1,88 @@
+{
+    "validPayerUser": {
+      "Address": {
+        "AddressLine1": "3 rue des Plantes",
+        "AddressLine2": "Appartement 7",
+        "City": "Paris",
+        "Region": "Ile-de-France",
+        "PostalCode": "75001",
+        "Country": "FR"
+      },
+      "FirstName": "Hugo",
+      "LastName": "Garnier",
+      "Birthday": 652117514,
+      "Nationality": "FR",
+      "CountryOfResidence": "FR",
+      "Occupation": null,
+      "IncomeRange": null,
+      "Tag": "Created using MANGOPAY API Collection Postman",
+      "Email": "email@test.com",
+      "TermsAndConditionsAccepted": false,
+      "UserCategory": "PAYER"
+    },
+    "validOwnerUser": {
+          "Address": {
+            "AddressLine1": "3 rue des Plantes",
+            "AddressLine2": "Appartement 7",
+            "City": "Paris",
+            "Region": "Ile-de-France",
+            "PostalCode": "75001",
+            "Country": "FR"
+          },
+          "FirstName": "Hugo",
+          "LastName": "Garnier",
+          "Birthday": 652117514,
+          "Nationality": "FR",
+          "CountryOfResidence": "FR",
+          "Occupation": null,
+          "IncomeRange": null,
+          "Tag": "Created using MANGOPAY API Collection Postman",
+          "Email": "email@test.com",
+          "TermsAndConditionsAccepted": false,
+          "UserCategory": "OWNER"
+        },
+    "missingFirstName": {
+      "Address": {
+        "AddressLine1": "3 rue des Plantes",
+        "City": "Paris",
+        "Country": "FR"
+      },
+      "LastName": "Garnier",
+      "Birthday": 652117514,
+      "Nationality": "FR",
+      "CountryOfResidence": "FR",
+      "Email": "email@test.com"
+    },
+    "invalidCountryCode": {
+      "Address": {
+        "AddressLine1": "3 rue des Plantes",
+        "City": "Paris",
+        "Country": "XYZ"
+      },
+      "FirstName": "Hugo",
+      "LastName": "Garnier",
+      "Birthday": 652117514,
+      "Nationality": "XYZ",
+      "CountryOfResidence": "XYZ",
+      "Email": "email@test.com"
+    },
+    "invalidUserCategory": {
+        "Address": {
+          "AddressLine1": "3 rue des Plantes",
+          "City": "Paris",
+          "Country": "XYZ"
+        },
+        "FirstName": "Hugo",
+        "LastName": "Garnier",
+        "Birthday": 652117514,
+        "Nationality": "XYZ",
+        "CountryOfResidence": "XYZ",
+        "Email": "email@test.com",
+        "UserCategory": "Invalid"
+      },
+    "wallet": {
+        "Description": "Customer wallet",
+        "Currency": "EUR",
+        "Tag": "Wallet for Hugo Garnier"
+    }  
+  }
