@@ -12,7 +12,7 @@ This repository contains automated tests for the MangoPay API using Playwright. 
 - Easily extendable to add more tests and features.
 
 ## Project Structure
-
+```plaintext
 ├── .github/
 │   └── workflows/
 │       └── ci.yml                  # GitHub Actions CI/CD pipeline configuration
@@ -21,10 +21,10 @@ This repository contains automated tests for the MangoPay API using Playwright. 
 │   │   └── requests.ts             # Common request utility functions
 │   ├── config/
 │   │   └── config.ts               # Configuration constants and environment variables
-        └── playwright.config.ts    # Playwright configuration file       
+│   │   └── playwright.config.ts    # Playwright configuration file       
 │   └── tests/
 │       └── users.spec.ts           # API test file for user-related endpoints
-    └── testData.json               # Test data used in the tests
+│   └── testData.json               # Test data used in the tests
 ├── tsconfig.json/                  # TypeScript configuration file
 ├── package.json                    # Node.js dependencies and scripts
 └── README.md                       # Project documentation
