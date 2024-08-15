@@ -24,7 +24,7 @@ This repository contains automated tests for the MangoPay API using Playwright. 
         └── playwright.config.ts    # Playwright configuration file       
 │   └── tests/
 │       └── users.spec.ts           # API test file for user-related endpoints
-    └── testData.json      
+    └── testData.json               # Test data used in the tests
 ├── tsconfig.json/                  # TypeScript configuration file
 ├── package.json                    # Node.js dependencies and scripts
 └── README.md                       # Project documentation
@@ -58,6 +58,10 @@ To run all tests locally, use the following command:
 npx playwright test
 
 This command will execute all the test cases in the tests directory.
+
+npx playwright test src/tests/{test}.spec.ts
+
+This command will execute 1 test in the tests directory.
 
 5. Viewing Test Results
 HTML Report

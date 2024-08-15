@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { createApiContext, createUser } from '../commons/requests';
+import { createApiContext, createUser, fetchExistingUserIds } from '../commons/requests';
 import testData from '../testData.json';
 
 
- test.describe('Create Natural User', () => {
+  test.describe('Create Natural User', () => {
   test('should create a new Payer user successfully', async () => {
 
     const apiContext = await createApiContext();
@@ -25,7 +25,22 @@ import testData from '../testData.json';
     console.log('User ID:', responseBody.Id);
   });
 
-    test('should create a new Owner user successfully', async () => {
+  test('should create a new Owner user and ensure user ID is unique', async () => {
+    const apiContext = await createApiContext();
+
+    const existingIds = await fetchExistingUserIds(apiContext);
+  
+    const response = await createUser(apiContext, testData.validOwnerUser);
+
+    const responseBody = await response.json();
+    
+    const userId = responseBody.Id;
+  
+    // Check that the new User ID is unique
+    expect(existingIds).not.toContain(userId);  
+  });
+  
+  test('should create a new Owner user successfully', async () => {
   
       const apiContext = await createApiContext();
   
@@ -77,7 +92,7 @@ import testData from '../testData.json';
     expect(response.status()).toBe(400);
     const responseBody = await response.json();
     expect(responseBody.Message).toContain('One or several required parameters are missing or incorrect. An incorrect resource ID also raises this kind of error.');
-});
+  });
 });
 
 

@@ -60,3 +60,21 @@ export async function createUser(apiContext: any, userData: any): Promise<any> {
   
     return walletResponse;
   }
+
+  export async function fetchExistingUserIds(apiContext: any) {
+    const response = await apiContext.get(`/v2.01/qatechtest/users`);
+    const users = await response.json();
+  
+    const existingUserIds: string[] = users.map((user: any) => user.Id);
+  
+    return existingUserIds;
+  }
+
+export async function fetchExistingWalletIds(apiContext: any, userId: string) {
+  const response = await apiContext.get(`/v2.01/qatechtest/users/${userId}/wallets`);
+  const wallets = await response.json();
+
+  const existingWalletIds: string[] = wallets.map((wallet: any) => wallet.Id);
+
+  return existingWalletIds;
+}
